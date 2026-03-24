@@ -4,27 +4,31 @@
 To develop an LSTM-based model for recognizing the named entities in the text.
 
 ## Problem Statement and Dataset
+An organization needs to extract important information such as names of people, locations, organizations, and other entities from large amounts of unstructured text data. Manually identifying these named entities is time-consuming and inefficient.
+To automate this process, a model based on Long Short-Term Memory (LSTM) networks will be developed. LSTM is a type of recurrent neural network that is capable of capturing long-term dependencies in sequential data, making it suitable for natural language processing tasks.
+The model will be trained on labeled text data where each word is tagged with its corresponding entity type. By learning the context and relationships between words in a sentence, the model can accurately identify and classify named entities.
+After training, the model will be tested on new, unseen text to evaluate its performance in recognizing entities. The objective is to achieve high accuracy in extracting relevant information from text data efficiently.
 
-![image1](image.png)
+<img width="413" height="795" alt="562781508-6e856b84-7832-4118-8125-1cd117bd4cde" src="https://github.com/user-attachments/assets/716e6a06-b7c9-4c97-984f-e7bc6033fb86" />
+
 ## DESIGN STEPS
+STEP 1: Collect and Prepare Dataset
+Obtain a labeled text dataset where each word is tagged with its entity label (e.g., Person, Location, Organization, O).
 
-STEP 1:
-Load data, create word/tag mappings, and group sentences.
+STEP 2: Text Preprocessing
+Tokenize the sentences into words, convert them into numerical representations, and create vocabulary indices.
 
-STEP 2:
-Convert sentences to index sequences, pad to fixed length, and split into training/testing sets.
+STEP 3: Generate Word Embeddings
+Convert each word into dense vectors using embedding techniques such as Word Embedding from libraries like Word2Vec or GloVe.
 
-STEP 3:
-Define dataset and DataLoader for batching.
+STEP 4: Build the LSTM Model
+Construct an LSTM-based neural network consisting of an embedding layer, one or more LSTM layers, and a dense layer with a softmax activation for entity classification.
 
-STEP 4:
-Build a bidirectional LSTM model for sequence tagging.
+STEP 5: Train the Model
+Train the LSTM using the labeled sequences to learn contextual relationships between words and their corresponding entity tags.
 
-STEP 5:
-Train the model over multiple epochs, tracking loss.
-
-STEP 6:
-Evaluate model accuracy, plot loss curves, and visualize predictions on a sample.
+STEP 6: Predict and Evaluate
+Apply the trained model to new sentences to identify named entities and evaluate performance using metrics such as precision, recall, and F1-score.
 
 
 ## PROGRAM
@@ -227,6 +231,7 @@ for w_id, true_tag, pred_tag in zip(X_test[i], y_test[i], preds):
 
 ```
 ## Loss Vs Epoch Plot
+<img width="441" height="68" alt="562785361-50471533-9ae7-4a69-baa1-4d5b89fa0a26" src="https://github.com/user-attachments/assets/1ac8e877-5e3c-4c54-8f40-0728a43ea83a" />
 
 ![alt text](image-1.png)
 
